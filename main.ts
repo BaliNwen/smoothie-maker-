@@ -1,16 +1,6 @@
 //  return statement / user input
 function fruit_selector(array_fruit: string) {
-    for (let x of array_fruit) {
-        if (x == "" && py.In("", array_fruit)) {
-            game.splash("You've made a " + "" + "smoothie!")
-        } else if (x) {
-            array_fruit.indexOf("") >= 0
-        }
-        
-        //  if value not in list then make them restart
-        game.splash("You didn't select anything!")
-        game.gameOver(false)
-    }
+    let str = array_fruit.indexOf("") >= 0
 }
 
 game.splash("Welcome to the smoothie maker!")

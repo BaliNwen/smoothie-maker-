@@ -1,21 +1,22 @@
-//  return statement / user input
-function fruit_selector(array_fruit: string): string {
-    //  if users input inside the list than print the value selected
-    if (array_fruit.indexOf("") >= 0) {
-        game.splash("You've made a " + +"smoothie!")
-    } else if (array_fruit.indexOf("") < 0) {
-        //  if value not in list then make them restart
-        game.splash("You didn't select anything!")
-        game.gameOver(false)
+game.splash("Welcom to the smoothie maker!")
+game.splash("You thought i was going to make your smoothie?")
+game.splash("no. HaHA!")
+// tease
+let fruits = ["blueberry", "mango", "peach", "watermelon", "blackberry", "banana", "pinapple"]
+game.splash("Choose from this selection: " + fruits)
+function fruit_selector(array_fruit: any[]) {
+    let selection = game.askForString("what kind of smoothie would you like?").toLowerCase()
+    let found = false
+    //  if wrong option
+    for (let fruit of array_fruit) {
+        found = true
+        //  if correct option 
+        game.splash("You've made a " + fruit + " smoothie")
+        if (!found) {
+            game.splash("We don't have: " + selection + "!" + " choose something else you rat!")
+        }
+        
     }
-    
-    return array_fruit
 }
 
-game.splash("Welcome to the smoothie maker!")
-game.splash("you get to make your own smoothie!")
-game.splash("Here are your ingredients!")
-let array_fruit = ["blueberry", "mango", "peach", "watermelon", "blackberry", "banana", "pineapple"]
-//  array of fruit
-game.splash(array_fruit)
-fruit_selector(game.askForString("what would you like to add to your drink?"))
+fruit_selector(fruits)

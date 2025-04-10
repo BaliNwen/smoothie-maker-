@@ -1,19 +1,25 @@
-game.splash("Welcom to the smoothie maker!")
-game.splash("You thought i was going to make your smoothie?")
-game.splash("no. HaHA!") #tease
 
-fruits = ["blueberry" , "mango", "peach", "watermelon", "blackberry", "banana", "pinapple"]
+game.splash("welcome to the smoothie maker ladies and gentlemen.")
+game.splash("you may comence your smoothie making")
+froots = ["blueberry", "mango", "peach", "watermelon", "blackberry", "banana", "pineapple"]
+game.splash("here are your ingredients: blueberry, mango, peach, watermelon, blackberry, banana, pineapple")
+game.splash("please choose an option to choose from.")
 
-game.splash("Choose from this selection: " + fruits)
-
-
-def fruit_selector(array_fruit):
-    selection = game.ask_for_string("what kind of smoothie would you like?").to_lower_case()
-    found = False # if wrong option
+def fruit_selection(array_fruit):
+    # ask for input & convert it to Lcase
+    choice = game.ask_for_string("what kind of smoothie would you like to make?").toLowerCase()
+    found = False
+    # loop through each fruit in the list
     for fruit in array_fruit:
-        found = True # if correct option 
-        game.splash("You've made a " + fruit + " smoothie" )
-        if not found:
-            game.splash("We don't have: " + selection + "!" + " choose something else you rat!")
+        if fruit == choice:
+            found = True
+            game.splash("you've made a " + fruit + " smoothie!")
+            game.splash("goodbye.")
+            game.game_over(True)
+    # if no match found: error msg = true
+    if not found:
+        game.splash("we do not provide " + choice + "." + "Please choose something else. ")
+        game.splash("stop trolling and choose something.")
+        game.game_over(False)
 
-fruit_selector(fruits)
+fruit_selection(froots)
